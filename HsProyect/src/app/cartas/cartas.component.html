@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 sm-12">
+      <label>Name</label>
+      <input class="form-control" name="filtro" [(ngModel)]="filtro" type="text">
+    </div>
+    <div class="col-8">
+      <div class="row">
+        <div class="col-2 sm-12">
+          <label>Classes</label>
+          <select class="form-control" [(ngModel)]="clasesF">
+            <option>NEUTRAL</option>
+            <option *ngFor="let c of config.class"  [ngValue]="c">{{c}}</option>
+          </select>
+        </div>
+        <div class="col-2 sm-12">
+          <label>Set</label>
+          <select class="form-control" [(ngModel)]="setF">
+            <option *ngFor="let s of config.set" [ngValue]="s">{{s.complete}}</option>
+          </select>
+        </div>
+        <div class="col-2 sm-12">
+          <label>Type</label>
+          <select class="form-control" [(ngModel)]="typeF">
+            <option *ngFor="let t of config.type" [ngValue]="t">{{t}}</option>
+          </select>
+        </div>
+        <div class="col-2 sm-12">
+          <label>Rarity</label>
+          <select class="form-control" [(ngModel)]="rarityF">
+            <option *ngFor="let r of config.rarity" [ngValue]="r">{{r}}</option>
+          </select>
+        </div>
+        <div class="col-2 sm-12">
+          <button type="button" class="btn btn-primary" (click)="limpiar()">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="container">
+  <div class="row" *ngIf="listacartas">
+    <div *ngFor="let carta of listacartas | filtro: {name: filtro, c : clasesF, s : setF, t : typeF, r :rarityF}" class="col-12 col-sm-6 col-md-4">
+      <a [routerLink]="['/detalle/'+ carta.dbfId]"><img src="https://media.services.zam.com/v1/media/byName/hs/cards/enus/{{carta.id}}.png"> </a>
+    </div>
+  </div>
+</div>
+
+

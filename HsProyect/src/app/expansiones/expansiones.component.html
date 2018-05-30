@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row" *ngFor="let expansion of expansiones">
+    <h2 class="col-12">{{expansion.name}}</h2>
+    <div class="col-6 imagen">
+      <img src="{{expansion.image}}">
+    </div>
+    <div class="col-6">
+      {{expansion.textx}}
+    </div>
+  </div>
+</div>

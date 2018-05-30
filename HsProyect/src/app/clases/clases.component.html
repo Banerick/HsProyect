@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row" *ngFor="let clase of clases">
+    <h2 class="col-12">{{clase.name}}</h2>
+    <div class="col-4">
+      <img src="{{clase.image}}">
+    </div>
+    <div class="col-4">
+      <img src="{{clase.power}}">
+    </div>
+    <div class="col-4">
+      {{clase.text}}
+    </div>
+  </div>
+</div>
